@@ -153,7 +153,7 @@ export default function Account({ session }: { session: AuthSession }) {
       </div>
 
       <div>
-        <label htmlFor="website">Website</label>
+        <label htmlFor="website">Your Website</label>
         <input
           id="website"
           type="website"
