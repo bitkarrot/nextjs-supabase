@@ -11,6 +11,7 @@ export default function Account({ session }: { session: AuthSession }) {
   const [avatar, setAvatar] = useState<string | null>(null)
   const [username, setUsername] = useState<string | null>(null)
   const [website, setWebsite] = useState<string | null>(null)
+  const [lnaddress, setLnaddress] = useState<string | null>(null)
 
   useEffect(() => {
     getProfile()
@@ -65,6 +66,7 @@ export default function Account({ session }: { session: AuthSession }) {
     setAvatar(profile.avatar_url)
     setUsername(profile.username)
     setWebsite(profile.website)
+    setLnaddress(profile.lnaddress)
   }
 
   async function getProfile() {
@@ -74,7 +76,7 @@ export default function Account({ session }: { session: AuthSession }) {
 
       let { data, error } = await supabase
         .from('profiles')
-        .select(`username, website, avatar_url`)
+        .select(`username, website, avatar_url, lnaddress`)
         .eq('id', user!.id)
         .single()
 
@@ -145,6 +147,11 @@ export default function Account({ session }: { session: AuthSession }) {
           disabled
         />
       </div>
+       <div>
+        <label htmlFor="email">Lightning Address</label>
+        <input id="lnaddress" type="text" value={lnaddress || ''} disabled />
+      </div>
+
       <div>
         <label htmlFor="website">Website</label>
         <input
