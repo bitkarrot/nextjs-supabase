@@ -141,7 +141,8 @@ export default function Account({ session }: { session: AuthSession }) {
           id="username"
           type="text"
           value={username || ''}
-          readonly
+          onChange={(e) => setUsername(e.target.value)}
+          disabled
         />
       </div>
       <div>
