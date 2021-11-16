@@ -136,12 +136,12 @@ export default function Account({ session }: { session: AuthSession }) {
         <input id="email" type="text" value={session.user.email} disabled />
       </div>
       <div>
-        <label htmlFor="username">Name</label>
+        <label htmlFor="username">Telegram Username</label>
         <input
           id="username"
           type="text"
           value={username || ''}
-          onChange={(e) => setUsername(e.target.value)}
+          readonly
         />
       </div>
       <div>
