@@ -8,5 +8,6 @@ export type Profile = {
   avatar_url: string
   username: string
   website: string
+  lnaddress: string
   updated_at: string
 }
